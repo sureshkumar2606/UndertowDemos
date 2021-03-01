@@ -8,12 +8,18 @@ import com.example.demo.pojos.Employee;
 import io.undertow.Undertow;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.RoutingHandler;
+import java.net.InetAddress;
 
 public class App {
 	public static void main(String a[]) {
 		System.out.println("Application Started ---");
-		Undertow server = Undertow.builder().addHttpListener(8080, "0.0.0.0", ROUTES).build();
-		server.start();
+		try {
+			Undertow server = Undertow.builder()
+					.addHttpListener(8080, InetAddress.getLocalHost().getHostAddress(), ROUTES).build();
+			server.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static List<Employee> getEmployeesList() {
