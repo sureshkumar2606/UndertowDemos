@@ -12,7 +12,7 @@ import io.undertow.server.RoutingHandler;
 public class App {
 	public static void main(String a[]) {
 		System.out.println("Application Started ---");
-		Undertow server = Undertow.builder().addHttpListener(8080, "localhost", ROUTES).build();
+		Undertow server = Undertow.builder().addHttpListener(8080, "0.0.0.0", ROUTES).build();
 		server.start();
 	}
 
