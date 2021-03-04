@@ -15,7 +15,7 @@ public class App {
 		System.out.println("Application Started ---");
 		try {
 			Undertow server = Undertow.builder()
-					.addHttpListener(8080, InetAddress.getLocalHost().getHostAddress(), ROUTES).build();
+					.addHttpListener(8082, InetAddress.getLocalHost().getHostAddress(), ROUTES).build();
 			server.start();
 		} catch (Exception e) {
 			e.printStackTrace();
